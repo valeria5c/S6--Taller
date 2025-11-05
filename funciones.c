@@ -8,7 +8,7 @@ int menu()
 {
     int opc;
     int valido;
-    do
+    do{
         printf(" MENU\n");
         printf("1. Registrar los nombres y precios de los productos\n");
         printf("2. Calcular el precio total del inventario\n");
@@ -168,4 +168,5 @@ void buscar_producto(char nom_prod[][30], float precio[], int cont){
     } while (continuar=='S');
 
 }
+
 
