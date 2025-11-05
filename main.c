@@ -60,8 +60,9 @@ int main (int argc, char *argv[])
         }
 
         // Preguntar si desea volver al menú
-        continuar = ValidacionLetras("\nDesea regresar al menu (S/N): ");
+        continuar = ValidacionLetras("\nDesea regresar al menu");
     } while (continuar=='S'); 
     return 0;
 
 }
+
