@@ -7,15 +7,24 @@
 int menu()
 {
     int opc;
-    printf(" MENU\n");
-    printf("1. Registrar los nombres y precios de los productos\n");
-    printf("2. Calcular el precio total del inventario\n");
-    printf("3. Encontrar el producto más caro y el más barato\n");
-    printf("4. Calcular el precio promedio de todos los productos\n");
-    printf("5. Buscar un producto por su nombre y mostrar su precio\n");
-    printf("6. Salir del programa\n");
-    printf("Seleccione una opcion >> ");
-    scanf("%d", &opc);
+    int valido;
+    do
+        printf(" MENU\n");
+        printf("1. Registrar los nombres y precios de los productos\n");
+        printf("2. Calcular el precio total del inventario\n");
+        printf("3. Encontrar el producto más caro y el más barato\n");
+        printf("4. Calcular el precio promedio de todos los productos\n");
+        printf("5. Buscar un producto por su nombre y mostrar su precio\n");
+        printf("6. Salir del programa\n");
+        printf("Seleccione una opcion >> ");
+        valido = scanf("%d", &opc);
+        //Validación (debe ser un número entre 1 y 6)
+        if (valido!=1 || opc<1 || opc>6){
+            printf("Opción inválida. Intente nuevamente.\n");
+            while (getchar() != '\n'); // Limpia el espacio de almacenamiento temporal
+        }
+    } while (valido != 1 || opc < 1 || opc > 6);
+
     return opc;
 }
 
@@ -159,3 +168,4 @@ void buscar_producto(char nom_prod[][30], float precio[], int cont){
     } while (continuar=='S');
 
 }
+
