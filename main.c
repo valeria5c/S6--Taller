@@ -27,7 +27,7 @@ int main (int argc, char *argv[])
         case 2:
             // Calcular el precio total del inventario
             if (!ValidacionProdExist(cont)) break;
-            printf("El precio total del inventario es: $%.2f\n", total_inventario( precio, cont));
+            printf("\nEl precio total del inventario es: $%.2f\n", total_inventario( precio, cont));
             break;
         
         case 3:
@@ -39,7 +39,7 @@ int main (int argc, char *argv[])
         case 4:
             // Calcular el precio promedio de los productos
             if (!ValidacionProdExist(cont)) break;
-            printf("El promedio total del precio de los productos es: $%.2f\n", Promedio_producto(precio, cont));
+            printf("\nEl promedio total del precio de los productos es: $%.2f\n", Promedio_producto(precio, cont));
             break;
 
         case 5:
@@ -65,4 +65,5 @@ int main (int argc, char *argv[])
     return 0;
 
 }
+
 
