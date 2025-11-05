@@ -12,7 +12,7 @@ int menu()
         printf(" MENU\n");
         printf("1. Registrar los nombres y precios de los productos\n");
         printf("2. Calcular el precio total del inventario\n");
-        printf("3. Encontrar el producto más caro y el más barato\n");
+        printf("3. Encontrar el producto mas caro y el mas barato\n");
         printf("4. Calcular el precio promedio de todos los productos\n");
         printf("5. Buscar un producto por su nombre y mostrar su precio\n");
         printf("6. Salir del programa\n");
@@ -20,7 +20,7 @@ int menu()
         valido = scanf("%d", &opc);
         //Validación (debe ser un número entre 1 y 6)
         if (valido!=1 || opc<1 || opc>6){
-            printf("Opción inválida. Intente nuevamente.\n");
+            printf("Opcion invalida. Intente nuevamente.\n");
             while (getchar() != '\n'); // Limpia el espacio de almacenamiento temporal
         }
     } while (valido != 1 || opc < 1 || opc > 6);
@@ -38,7 +38,7 @@ int registro_producto(char nom_prod[][30], float precio[10], int cont){
         fgets(nom_prod[cont],30,stdin);
         borrarSaltoLinea(nom_prod[cont]);
         precio[cont] = ValidacionNumeros("Ingrese el precio del producto %s\n", nom_prod[cont]);
-        continuar = ValidacionLetras("Desea ingresar otro producto (S/N): ");
+        continuar = ValidacionLetras("Desea ingresar otro producto");
         cont++;
     } while (continuar=='S'&& cont<10);
     return cont;
@@ -89,7 +89,7 @@ char ValidacionLetras(const char mensaje[]){
 // Verifica si hay productos registrados
 int ValidacionProdExist(int cont){
     if (cont == 0) {
-    printf("\nDebe registrar al menos un producto antes de usar esta opción.\n");
+    printf("\nDebe registrar al menos un producto antes de usar esta opcion.\n");
     return 0;
     }
     return 1;
@@ -163,10 +163,11 @@ void buscar_producto(char nom_prod[][30], float precio[], int cont){
         if (!encontrado) {
             printf("Producto no encontrado.\n");
         }
-        continuar = ValidacionLetras("Desea buscar otro producto (S/N): ");
+        continuar = ValidacionLetras("Desea buscar otro producto");
         fflush(stdin);
     } while (continuar=='S');
 
 }
+
 
 
