@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include "funciones.h"
 
+// Muestra el menú principal y devuelve la opción seleccionada
 int menu()
 {
     int opc;
@@ -18,6 +19,7 @@ int menu()
     return opc;
 }
 
+// Registra productos y precios, retorna el nuevo contador
 int registro_producto(char nom_prod[][30], float precio[10], int cont){
     char continuar='S';
     do
@@ -33,15 +35,18 @@ int registro_producto(char nom_prod[][30], float precio[10], int cont){
     return cont;
 }
 
+// Elimina el salto de línea al final de una cadena
 void borrarSaltoLinea(char cadena[]){
     int len=strlen(cadena) -1;
     cadena[len]='\0';
 }
 
+// Convierte un carácter a mayúscula
 char Mayuscula(char caracter){
     return toupper(caracter);
 }
 
+// Valida que el número ingresado sea un float positivo
 float ValidacionNumeros(const char mensaje[], char nom_prod[]){
     float numero;
     int valido;
@@ -56,6 +61,7 @@ float ValidacionNumeros(const char mensaje[], char nom_prod[]){
     return numero;
 }
 
+// Valida que la letra ingresada sea 'S' o 'N'
 char ValidacionLetras(const char mensaje[]){
     char letra;
     int valido;
@@ -71,6 +77,7 @@ char ValidacionLetras(const char mensaje[]){
     return letra;
 }
 
+// Verifica si hay productos registrados
 int ValidacionProdExist(int cont){
     if (cont == 0) {
     printf("\nDebe registrar al menos un producto antes de usar esta opción.\n");
@@ -79,6 +86,7 @@ int ValidacionProdExist(int cont){
     return 1;
 }
 
+// Calcula el precio total del inventario
 float total_inventario(float precio[], int cont){
     float total=0;
     for (int i = 0; i < cont; i++)
@@ -88,6 +96,7 @@ float total_inventario(float precio[], int cont){
     return total;
 }
 
+// Muestra el producto más caro y el más barato
 void Prod_carobarato(float precio[], char nom_prod[][30], int cont){
     float mas_caro=precio[0];
     float mas_barato=precio[0];
@@ -112,6 +121,7 @@ void Prod_carobarato(float precio[], char nom_prod[][30], int cont){
     
 }
 
+// Calcula el precio promedio de los productos
 float Promedio_producto(float precio[], int cont){
     if (cont == 0) {
         printf("No hay productos registrados.\n");
@@ -121,6 +131,7 @@ float Promedio_producto(float precio[], int cont){
     return promedio;
 }
 
+// Busca un producto por nombre y muestra su precio
 void buscar_producto(char nom_prod[][30], float precio[], int cont){
     char continuar;
     char prod_buscado[30];
@@ -146,4 +157,5 @@ void buscar_producto(char nom_prod[][30], float precio[], int cont){
         continuar = ValidacionLetras("Desea buscar otro producto (S/N): ");
         fflush(stdin);
     } while (continuar=='S');
+
 }
